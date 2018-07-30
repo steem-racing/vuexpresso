@@ -1,0 +1,21 @@
+version: '3'
+services:
+  webapp:
+    image: vuexpresso
+    build: .
+    command: npm run docker-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - webapp-data:/app
+      - /app/node_modules
+    depends_on:
+      - "mongo"
+
+  mongo:
+    image: mongo:4-xenial
+    ports:
+      - "27017:27017"
+
+volumes:
+  webapp-data:
