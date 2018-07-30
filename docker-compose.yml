@@ -3,7 +3,7 @@ services:
   webapp:
     image: vuexpresso
     build: .
-    command: npm run docker-dev
+    command: yarn dev
     ports:
       - "3000:3000"
     volumes:
